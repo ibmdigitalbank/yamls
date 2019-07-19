@@ -1,0 +1,11 @@
+---
+- hosts: kubemaster
+  tasks:
+  - name: deploy microservices
+    command: "{{ item }}"
+    with_items:
+     - kubectl apply -f ./mscomptes/mscomptes.yaml --validate=false
+     - kubectl apply -f ./mscredits/mscredits.yaml --validate=false
+     - kubectl apply -f ./mstransactions/mstransaction.yaml --validate=false
+     - kubectl apply -f ./mscdonnees/msdatabase.yaml --validate=false
+
